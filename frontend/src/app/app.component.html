@@ -1,0 +1,13 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Gerenciador de Tarefas</a>
+  <div class="collapse navbar-collapse">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/tasks">Tarefas</a>
+      </li>
+    </ul>
+    <button class="btn btn-outline-danger" (click)="logout()">Sair</button>
+  </div>
+</nav>
+
+<router-outlet></router-outlet>

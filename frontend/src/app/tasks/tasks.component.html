@@ -1,0 +1,54 @@
+<div class="container">
+    <h2>Tarefas</h2>
+  
+    <form (ngSubmit)="addTask()" class="mb-4">
+      <div class="form-group">
+        <input
+          type="text"
+          class="form-control"
+          placeholder="Título da nova tarefa"
+          [(ngModel)]="newTask.title"
+          name="title"
+          required
+        />
+      </div>
+      <div class="form-group">
+        <textarea
+          class="form-control"
+          placeholder="Descrição"
+          [(ngModel)]="newTask.description"
+          name="description"
+        ></textarea>
+      </div>
+      <button type="submit" class="btn btn-success mt-2">Adicionar Tarefa</button>
+    </form>
+  
+    <ul class="list-group">
+      <li
+        class="list-group-item"
+        *ngFor="let task of tasks"
+        [class.list-group-item-success]="task.isCompleted"
+      >
+        <div class="d-flex justify-content-between align-items-center">
+          <div>
+            <h5>{{ task.title }}</h5>
+            <p>{{ task.description }}</p>
+            <small>Status: {{ task.isCompleted ? 'Concluída' : 'Pendente' }}</small>
+          </div>
+          <div>
+            <button
+              class="btn btn-primary btn-sm"
+              (click)="markAsCompleted(task)"
+              *ngIf="!task.isCompleted"
+            >
+              Marcar como Concluída
+            </button>
+            <button class="btn btn-danger btn-sm" (click)="deleteTask(task)">
+              Excluir
+            </button>
+          </div>
+        </div>
+      </li>
+    </ul>
+  </div>
+  
